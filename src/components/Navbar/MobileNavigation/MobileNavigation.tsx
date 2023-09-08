@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import useClickOutside from "@/hooks/useClickOutside";
 import { LanguageModeContext } from "@/contexts/LanguageContext";
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ pathname }: { pathname: string }) => {
   const { languageMode } = useContext(LanguageModeContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuToggle = () => {
@@ -37,7 +37,9 @@ const MobileNavigation = () => {
               viewport={{ amount: 0.2, once: false }}
               variants={createAnimateOnScroll(0.1)}
               key={index}
-              className="w-screen text-center hover:text-active-color"
+              className={`hover:text-secondary-color transition-colors duration-300 text-base ${
+                pathname === navLink.path ? "text-active-color" : "text-white"
+              }`}
             >
               <Link href={navLink.path} className="text-xl block">
                 {navLink.title}

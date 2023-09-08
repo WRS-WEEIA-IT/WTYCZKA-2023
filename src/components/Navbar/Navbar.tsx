@@ -11,11 +11,13 @@ import setNavbarHeight from "../../constants/setNavbarHeight";
 import useScreenWidth from "@/hooks/useScreenWidth";
 import DesktopNavigation from "./DesktopNavigation/DesktopNavigation";
 import MobileNavigation from "./MobileNavigation/MobileNavigation";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [navbarTransparency, setNavbarTransparency] = useState(0);
   const mobileNavbarThreshold = 1000;
   const screenWidth = useScreenWidth();
+  const pathname = usePathname();
 
   const handleNavbarColorChange = () => {
     const windowPosition = window.scrollY;
@@ -50,16 +52,16 @@ const Navbar = () => {
               whileInView="visible"
               viewport={cardViewportProperties}
               variants={createAnimateOnScroll(0)}
-              className="cursor-pointer font-bold tracking-widest uppercase text-2xl hover:text-active-color transition-colors duration-300"
+              className="cursor-pointer font-bold tracking-widest uppercase text-2xl hover:text-secondary-color transition-colors duration-300"
             >
               WTYCZKA
             </m.h3>
           </Link>
         </div>
         {screenWidth > mobileNavbarThreshold ? (
-          <DesktopNavigation />
+          <DesktopNavigation pathname={pathname} />
         ) : (
-          <MobileNavigation />
+          <MobileNavigation pathname={pathname} />
         )}
       </section>
     </nav>

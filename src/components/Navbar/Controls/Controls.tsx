@@ -7,12 +7,12 @@ const Controls = () => {
       <Facebook
         height={30}
         width={30}
-        className="cursor-pointer hover:stroke-active-color transition-all duration-300"
+        className="cursor-pointer hover:stroke-secondary-color transition-all duration-300"
       />
       <Instagram
         height={30}
         width={30}
-        className="cursor-pointer hover:stroke-active-color transition-all duration-300"
+        className="cursor-pointer hover:stroke-secondary-color transition-all duration-300"
       />
       <LanguageSwitch className="hover:rotate-[360deg] origin-center transition-all duration-300" />
     </div>

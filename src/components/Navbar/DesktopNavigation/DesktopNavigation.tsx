@@ -8,12 +8,12 @@ import { LanguageModeContext } from "@/contexts/LanguageContext";
 import { useContext } from "react";
 import Link from "next/link";
 
-const DesktopNavigation = () => {
+const DesktopNavigation = ({ pathname }: { pathname: string }) => {
   const { languageMode } = useContext(LanguageModeContext);
-  
+
   return (
     <>
-      <div className="flex items-center gap-6 text-base justify-start">
+      <div className="flex gap-6 text-base">
         {(languageMode == "polish" ? navLinksPL : navLinksEN).map(
           (navLink, index) => (
             <m.div
@@ -25,7 +25,9 @@ const DesktopNavigation = () => {
             >
               <Link
                 href={navLink.path}
-                className="hover:text-active-color transition-colors duration-300 active:text-active-color"
+                className={`hover:text-secondary-color transition-colors duration-300 ${
+                  pathname === navLink.path ? "text-active-color" : "text-white"
+                }`}
               >
                 {navLink.title}
               </Link>
