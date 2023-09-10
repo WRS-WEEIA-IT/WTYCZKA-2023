@@ -7,7 +7,7 @@ import SectionContentElement from "./SectionContent/SectionContentElement/Sectio
 export default function Participant() {
   const [selectedSection, setSelectedSection] = useState(0);
   return (
-    <main className="h-full">
+    <main className="h-full flex flex-col">
       <SectionHeaders
         selectedSection={selectedSection}
         setSelectedSection={setSelectedSection}

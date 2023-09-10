@@ -8,7 +8,7 @@ const SectionHeaders = ({
   setSelectedSection: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   return (
-    <section className="scrollable flex items-center gap-8 text-md overflow-auto px-8 lg:justify-center lg:text-lg">
+    <section className="flex items-center gap-8 text-md overflow-x-auto px-8 lg:justify-center lg:text-lg overflow-y-hidden">
       {headersPL.map((header, index) => (
         <span
           key={index}
