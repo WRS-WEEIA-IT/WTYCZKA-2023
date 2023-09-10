@@ -70,16 +70,14 @@
   background-color: #ee00ab;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-@media screen and (max-width: 768px) {
+@media (pointer: coarse) {
   .scrollable::-webkit-scrollbar {
     display: none;
   }
 
-  /* Hide scrollbar for IE, Edge and Firefox */
   .scrollable {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
