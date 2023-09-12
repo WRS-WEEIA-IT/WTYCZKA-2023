@@ -4,12 +4,12 @@ import { m } from "framer-motion";
 import Link from "next/link";
 import Controls from "../Controls/Controls";
 import { navLinksPL, navLinksEN } from "../NavLinks";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import useClickOutside from "@/hooks/useClickOutside";
-import { LanguageModeContext } from "@/contexts/LanguageContext";
+import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 
 const MobileNavigation = ({ pathname }: { pathname: string }) => {
-  const { languageMode } = useContext(LanguageModeContext);
+  const { languageMode } = useLanguageModeContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuToggle = () => {
     setIsMenuOpen((prevValue) => !prevValue);

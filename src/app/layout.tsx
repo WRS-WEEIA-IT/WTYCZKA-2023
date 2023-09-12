@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { LanguageModeContextProvider } from "@/contexts/LanguageModeContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,8 +25,10 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} p-0 m-0 box-border overflow-x-hidden`}
       >
-        <Navbar />
-        {children}
+        <LanguageModeContextProvider>
+          <Navbar />
+          {children}
+        </LanguageModeContextProvider>
       </body>
     </html>
   );
