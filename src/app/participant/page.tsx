@@ -7,6 +7,7 @@ import ParticipantEssentials from "./SectionContent/ParticipantEssentials/Partic
 import CampBriefing from "./SectionContent/CampBriefing/CampBriefing";
 import VatInvocies from "./SectionContent/VatInvoices/VatInvocies";
 import RefundsAndCancellations from "./SectionContent/RefundsAndCancellations/RefundsAndCancellations";
+import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 
 export default function Participant() {
   const [selectedSection, setSelectedSection] = useState(0);
@@ -17,8 +18,10 @@ export default function Participant() {
         setSelectedSection={setSelectedSection}
       />
       <SectionContent selectedSection={selectedSection}>
-        <SectionContentElement className="bg-cyan-950 text-left">
-          <span>Content 1</span>
+        <SectionContentElement className="bg-black text-left">
+          <span>
+            <RegistrationForm />
+          </span>
         </SectionContentElement>
         <SectionContentElement className="bg-red-900 text-center">
           <span>Content 2</span>
