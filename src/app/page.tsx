@@ -8,7 +8,7 @@ export default function Home() {
   const { languageMode } = useLanguageModeContext();
   return (
     <main className="flex flex-wrap items-center justify-around h-full gap-8 px-10">
-      <section className="flex flex-col items-center justify-center gap-4">
+      <section className="flex flex-col items-center justify-center gap-6">
         <Image
           src={wtyczkaLogo}
           alt="wtyczka Logo"
