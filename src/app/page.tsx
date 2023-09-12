@@ -15,7 +15,7 @@ export default function Home() {
           priority={true}
           className="max-w-xs vsm:max-w-xl"
         />
-        <h2 className="capitalize font-semibold tracking-wide text-lg">
+        <h2 className="capitalize font-semibold tracking-wide text-xl text-center">
           {languageMode === "english"
             ? "training and integration trip"
             : "wyjazd integracyjno-szkoleniowy"}

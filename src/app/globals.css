@@ -4,7 +4,7 @@
 
 @layer components {
   .date-label {
-    @apply mb-0 text-small-label whitespace-nowrap;
+    @apply mb-0 text-small-label;
   }
 
   .date-counter {
