@@ -40,6 +40,7 @@ const MobileNavigation = ({ pathname }: { pathname: string }) => {
               className={`hover:text-secondary-color transition-colors duration-300 text-base ${
                 pathname === navLink.path ? "text-active-color" : "text-white"
               }`}
+              onClick={handleMenuClose}
             >
               <Link href={navLink.path} className="text-xl block">
                 {navLink.title}
