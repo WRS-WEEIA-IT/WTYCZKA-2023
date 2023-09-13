@@ -1,6 +1,6 @@
 "use client";
 import { MAIN_PAGE } from "./NavLinks";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { m } from "framer-motion";
 import {
@@ -14,7 +14,6 @@ import MobileNavigation from "./MobileNavigation/MobileNavigation";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const [navbarTransparency, setNavbarTransparency] = useState(0);
   const mobileNavbarThreshold = 1000;
   const screenWidth = useScreenWidth();
   const pathname = usePathname();
