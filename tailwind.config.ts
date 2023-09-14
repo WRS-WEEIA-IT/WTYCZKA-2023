@@ -30,6 +30,11 @@ const config: Config = {
         "secondary-color": "#ff4dcc",
         "active-color": "#b30080",
       },
+      borderColor: {
+        "primary-color": "#EE00AB",
+        "secondary-color": "#ff4dcc",
+        "active-color": "#b30080",
+      },
       keyframes: {
         "spring-right": {
           from: { transform: "translateX(0px)" },
