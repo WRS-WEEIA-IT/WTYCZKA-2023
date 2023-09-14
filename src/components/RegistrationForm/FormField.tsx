@@ -10,6 +10,7 @@ const FormField = ({
   minLength,
   maxLength,
   registerName,
+  multiline,
 }: {
   label: string;
   isRequired: boolean;
@@ -17,6 +18,7 @@ const FormField = ({
   minLength: number;
   maxLength: number;
   registerName: string;
+  multiline?: boolean;
 }) => {
   const { register, formState } = useFormContext();
   const [pattern, setPattern] = useState(/.*/g);
@@ -50,6 +52,10 @@ const FormField = ({
         error={!!errors[registerName]}
         id="outlined-basic"
         variant="outlined"
+        fullWidth
+        multiline={multiline}
+        maxRows={multiline ? 8 : 1}
+        rows={multiline ? 8 : 1}
         {...register(registerName, {
           required: isRequired,
           minLength: {

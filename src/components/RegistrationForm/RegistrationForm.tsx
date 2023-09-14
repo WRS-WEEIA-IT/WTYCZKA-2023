@@ -17,7 +17,6 @@ import {
 } from "./selectOptions";
 import { Typography } from "@mui/material";
 import FormCheckbox from "./FormCheckbox";
-import { stat } from "fs";
 
 type FormValues = {
   firstName: string;
@@ -44,7 +43,7 @@ type FormValues = {
 };
 
 const RegistrationForm = () => {
-  const methods = useForm<FormValues>({ mode: "onBlur" });
+  const methods = useForm<FormValues>({ mode: "onChange" });
   const { languageMode } = useLanguageModeContext();
 
   const onSubmit = (data: FormValues) => {
@@ -232,7 +231,7 @@ const RegistrationForm = () => {
           </button>
         </div>
       </form>
-      <DevTool control={methods.control} />
+      {/* <DevTool control={methods.control} /> */}
     </FormProvider>
   );
 };
