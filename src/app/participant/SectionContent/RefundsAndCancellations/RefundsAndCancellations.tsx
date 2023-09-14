@@ -13,7 +13,7 @@ const RefundsAndCancellations = () => {
       : RefundsAndCancellationsTextEN;
   return (
     <>
-      <p className="text-xl w-4/6 mx-auto text-center py-6 break-words tracking-wide">
+      <p className="text-xl w-4/6 mx-auto text-center py-4 break-words tracking-wide">
         {usedLanguageText.content.split(" ").map((word, index) => (
           <span key={index}>
             {word.includes("@") ? (

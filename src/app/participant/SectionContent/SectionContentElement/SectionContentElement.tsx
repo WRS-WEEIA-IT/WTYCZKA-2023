@@ -5,7 +5,9 @@ const SectionContentElement = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return <div className={`min-w-full ${className}`}>{children}</div>;
+  return (
+    <div className={`min-w-full ${className} overflow-y-auto`}>{children}</div>
+  );
 };
 
 export default SectionContentElement;
