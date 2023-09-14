@@ -1,16 +1,17 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { MenuItem, Select, TextField, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 const FormSelect = ({
   label,
   options,
   isRequired,
+  registerName,
 }: {
   label: string;
   options: string[];
   isRequired: boolean;
+  registerName: string;
 }) => {
   const { control, formState } = useFormContext();
   const { errors } = formState;
@@ -27,10 +28,11 @@ const FormSelect = ({
       </Typography>
       <Controller
         control={control}
-        name={label}
+        name={registerName}
+        rules={{ required: isRequired }}
         render={({ field }) => (
           <Select
-            error={!!errors[label]}
+            error={!!errors[registerName]}
             variant="outlined"
             color="primary"
             {...field}

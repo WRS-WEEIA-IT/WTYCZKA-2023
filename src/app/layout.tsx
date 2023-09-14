@@ -26,6 +26,13 @@ const theme = createTheme({
       main: "#000000",
     },
   },
+  typography: {
+    fontFamily: "Montserrat, sans-serif",
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
+  },
   components: {
     MuiTextField: {
       styleOverrides: {
@@ -63,6 +70,16 @@ const theme = createTheme({
           },
           "& .MuiSelect-icon": {
             color: "#ffffff",
+          },
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          color: "#ffffff",
+          "& .MuiSvgIcon-root": {
+            fontSize: "30px",
           },
         },
       },

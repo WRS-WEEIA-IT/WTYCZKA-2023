@@ -9,12 +9,14 @@ const FormField = ({
   fieldType,
   minLength,
   maxLength,
+  registerName,
 }: {
   label: string;
   isRequired: boolean;
-  fieldType?: "numeric" | "text" | "mail";
+  fieldType?: "numeric" | "postal-code" | "mail";
   minLength: number;
   maxLength: number;
+  registerName: string;
 }) => {
   const { register, formState } = useFormContext();
   const [pattern, setPattern] = useState(/.*/g);
@@ -25,7 +27,9 @@ const FormField = ({
     if (fieldType == "mail") {
       setPattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
     } else if (fieldType == "numeric") {
-      setPattern(/^[0-9]*$/g);
+      setPattern(/^[0-9,]*$/g);
+    } else if (fieldType == "postal-code") {
+      setPattern(/^[0-9]{2}-[0-9]{3}$/g);
     } else {
       setPattern(/.*/g);
     }
@@ -42,11 +46,11 @@ const FormField = ({
       </Typography>
       <TextField
         type={fieldType == "mail" ? "email" : "text"}
-        helperText={errors[label]?.message?.toString()}
-        error={!!errors[label]}
+        helperText={errors[registerName]?.message?.toString()}
+        error={!!errors[registerName]}
         id="outlined-basic"
         variant="outlined"
-        {...register(label, {
+        {...register(registerName, {
           required: isRequired,
           minLength: {
             value: minLength,
