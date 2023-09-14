@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { ThemeProvider, createTheme } from "@mui/material";
+import Navbar from "@/components/Navbar/Navbar";
+import { LanguageModeContextProvider } from "@/contexts/LanguageModeContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -40,13 +42,26 @@ const theme = createTheme({
               borderColor: "#b30080",
             },
           },
-          "& .MuiInputLabel-root": {
+          "& .MuiInputBase-input": {
             color: "#ffffff",
           },
-          "& .MuiInputLabel-active": {
-            color: "#ffffff",
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          borderRadius: "8px",
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#ffffff",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#ffffff",
           },
           "& .MuiInputBase-input": {
+            color: "#ffffff",
+          },
+          "& .MuiSelect-icon": {
             color: "#ffffff",
           },
         },
@@ -63,7 +78,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} h-screen p-0 m-0 box-border`}>
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <LanguageModeContextProvider>
+            <Navbar />
+            {children}
+          </LanguageModeContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
