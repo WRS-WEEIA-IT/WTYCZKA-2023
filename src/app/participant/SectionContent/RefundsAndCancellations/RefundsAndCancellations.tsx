@@ -14,7 +14,6 @@ const RefundsAndCancellations = () => {
   return (
     <p className="text-xl w-4/6 mx-auto text-center py-4 break-words tracking-wide">
       <TextWithCopyPattern text={usedLanguageText.content} pattern="@" />
-
     </p>
   );
 };
