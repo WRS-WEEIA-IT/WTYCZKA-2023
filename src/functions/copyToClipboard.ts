@@ -1,10 +1,8 @@
-const copyToClipboard = async (text: string) => {
-  if (/^[.,!?]/.test(text)) {
-    text = text.slice(1);
-  }
-  if (/[.,!?]$/.test(text)) {
-    text = text.slice(0, -1);
-  }
+const copyToClipboard = async (
+  text: string,
+  trimFunction?: (text: string) => string
+) => {
+  trimFunction ? (text = trimFunction(text)) : (text = text);
   try {
     await navigator.clipboard.writeText(text);
   } catch (err) {

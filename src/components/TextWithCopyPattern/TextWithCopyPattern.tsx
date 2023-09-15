@@ -1,5 +1,6 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import copyToClipboard from "@/functions/copyToClipboard";
+import removeBorderPunctiation from "@/functions/removeBorderPunctiation";
 import { useState } from "react";
 
 const TextWithCopyPattern = ({
@@ -24,7 +25,7 @@ const TextWithCopyPattern = ({
                   setTimeout(() => {
                     setIsPopupVisible(false);
                   }, 2000);
-                  copyToClipboard(word);
+                  copyToClipboard(word, removeBorderPunctiation);
                 }}
               >
                 {word}
@@ -36,7 +37,7 @@ const TextWithCopyPattern = ({
         </span>
       ))}
       <p
-        className={`absolute bg-active-color rounded-lg p-2 text-lg transition-all duration-500 ease-in-out ${
+        className={`absolute bg-active-color rounded-lg p-2 text-lg transition-all duration-500 ease-in-out shadow-xl shadow-black ${
           isPopupVisible ? "bottom-4" : "-bottom-16"
         }`}
       >
