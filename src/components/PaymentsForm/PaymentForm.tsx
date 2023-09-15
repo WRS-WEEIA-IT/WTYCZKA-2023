@@ -25,14 +25,14 @@ const PaymentsForm = () => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(onSubmit)}
-          className="px-32 py-8 flex flex-col gap-1 justify-center items-center"
+          className="md:px-32 md:py-8 px-4 py-4 flex flex-col gap-1 justify-center items-center"
         >
           <Typography variant="h5" className=" text-center">
             {languageMode == "english"
-              ? "number of account for payment: xx xxxx xxxx xxxx xxxx"
+              ? "Number of account for payment: xx xxxx xxxx xxxx xxxx"
               : "Numer konta do płatności: xx xxxx xxxx xxxx xxxx"}
           </Typography>
-          <div className="grid grid-cols-1 gap-1 justify-center items-center  min-w-[30rem]">
+          <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
             <FormField
               label={languageMode == "english" ? "Name" : "Imię"}
               isRequired={false}
@@ -71,6 +71,7 @@ const PaymentsForm = () => {
                     </InputAdornment>
                   ),
                 }}
+                {...methods.register("file")}
               />
             </div>
           </div>

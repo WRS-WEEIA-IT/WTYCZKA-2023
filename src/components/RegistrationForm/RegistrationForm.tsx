@@ -52,13 +52,21 @@ const RegistrationForm = () => {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className="px-32 py-8">
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        className="px-4 py-4 md:px-32 md:py-8"
+      >
+        <Typography variant="h3" className=" text-center pb-4">
+          {languageMode == "english"
+            ? "Sign up for the trip"
+            : "Zapisz się na wyjazd"}
+        </Typography>
         <Typography variant="h6" className="text-primary-color m-4 ">
           {languageMode == "english"
             ? "Participant information"
             : "Informacje o uczestniku"}
         </Typography>
-        <div className="grid grid-cols-3">
+        <div className="flex flex-col md:grid md:grid-cols-3">
           <FormField
             label={languageMode == "english" ? "First name" : "Imię"}
             registerName="firstName"
@@ -133,7 +141,7 @@ const RegistrationForm = () => {
         <Typography variant="h6" className="text-primary-color m-4">
           {languageMode == "english" ? "Student details" : "Dane studenta"}
         </Typography>
-        <div className="grid grid-cols-3">
+        <div className="flex flex-col md:grid md:grid-cols-3">
           <FormField
             label={languageMode == "english" ? "Force" : "Jednostka"}
             registerName="force"
@@ -168,7 +176,7 @@ const RegistrationForm = () => {
             ? "Additional questions"
             : "Dodatkowe informacje"}
         </Typography>
-        <div className="grid grid-cols-3">
+        <div className="flex flex-col md:grid md:grid-cols-3">
           <FormSelect
             label={languageMode == "english" ? "Diet" : "Dieta"}
             registerName="diet"

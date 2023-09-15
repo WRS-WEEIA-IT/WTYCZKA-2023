@@ -23,14 +23,14 @@ const ContactForm = () => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(onSubmit)}
-          className="px-32 py-8 flex flex-col gap-1 justify-center items-center"
+          className="md:px-32 md:py-8 px-4 py-4 flex flex-col gap-1 justify-center items-center"
         >
           <Typography variant="h3" className=" text-center">
             {languageMode == "english"
               ? "Contact form"
               : "Formularz kontaktowy"}
           </Typography>
-          <div className="grid grid-cols-1 gap-1 justify-center items-center  min-w-[30rem]">
+          <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
             <FormField
               label={languageMode == "english" ? "Name" : "Imię"}
               isRequired={false}
@@ -56,7 +56,7 @@ const ContactForm = () => {
               multiline={true}
             />
           </div>
-          <div className="flex gap-4 py-8 justify-center items-center">
+          <div className="flex md:flex-row flex-col gap-4 py-8 justify-center items-center">
             <button type="submit" className="button-round button-outlined">
               {languageMode == "english"
                 ? "Contact via facebook"

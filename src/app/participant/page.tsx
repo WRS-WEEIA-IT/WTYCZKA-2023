@@ -9,7 +9,7 @@ import VatInvocies from "./SectionContent/VatInvoices/VatInvocies";
 import RefundsAndCancellations from "./SectionContent/RefundsAndCancellations/RefundsAndCancellations";
 import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 import ContactForm from "@/components/ContactForm/ContactForm";
-import PaymentsForm from "@/components/PaymentsForm/PaymentsForm";
+import PaymentsForm from "@/components/PaymentsForm/PaymentForm";
 
 export default function Participant() {
   const [selectedSection, setSelectedSection] = useState(0);
