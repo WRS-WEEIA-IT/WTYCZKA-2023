@@ -13,7 +13,11 @@ const RefundsAndCancellations = () => {
       : RefundsAndCancellationsTextEN;
   return (
     <p className="text-xl text-center break-words tracking-wide w-full">
-      <TextWithCopyPattern text={usedLanguageText.content} pattern="@" slideIndex={5}/>
+      <TextWithCopyPattern
+        text={usedLanguageText.content}
+        pattern="@"
+        slideIndex={5}
+      />
     </p>
   );
 };

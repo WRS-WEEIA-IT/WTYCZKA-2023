@@ -19,9 +19,7 @@ const CampBriefing = () => {
           linkEnd={usedLanguageText.linkEnd}
         />
       </h3>
-      <p className="text-center text-xl">
-        {usedLanguageText.content}
-      </p>
+      <p className="text-center text-xl">{usedLanguageText.content}</p>
     </>
   );
 };
