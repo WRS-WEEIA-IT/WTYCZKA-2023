@@ -15,14 +15,14 @@ const ParticipantEssentials = () => {
       : ParticipantEssentialsTextEN;
   return (
     <>
-      <h2 className="text-3xl text-secondary-color text-center mt-4 w-4/6 mx-auto uppercase">
+      <h2 className="text-3xl text-secondary-color text-center uppercase">
         {usedLanguageText.heading}
       </h2>
-      <ul className="list-none text-xl w-4/6 mx-auto" id="essentials-list">
+      <ul className="list-none text-xl">
         {usedLanguageText.bulletPoints.map((bulletPoint, index) => (
           <li
             key={index}
-            className="flex items-start gap-4 justify-start text-left my-2 last:pb-4"
+            className="flex items-start gap-6 justify-start text-left my-2"
           >
             <Check width={24} height={24} className="min-w-[24px] mt-px" />
             {index === usedLanguageText.bulletLinkIndex ? (

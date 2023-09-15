@@ -10,7 +10,7 @@ const SectionHeaders = ({
 }) => {
   const { languageMode } = useLanguageModeContext();
   return (
-    <section className="scrollable flex items-center gap-8 text-md overflow-x-auto px-8 xl:justify-center lg:text-lg overflow-y-hidden">
+    <section className="scrollable flex items-center gap-8 text-md overflow-x-auto px-8 xl:justify-center overflow-y-hidden">
       {(languageMode == "polish" ? headersPL : headersEN).map(
         (header, index) => (
           <span

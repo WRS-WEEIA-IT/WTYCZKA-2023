@@ -23,16 +23,16 @@ export default function Participant() {
         <SectionContentElement className="bg-red-900 text-center">
           <span>Content 2</span>
         </SectionContentElement>
-        <SectionContentElement className="flex items-center justify-top flex-col gap-6 sm:justify-center">
+        <SectionContentElement>
           <ParticipantEssentials />
         </SectionContentElement>
-        <SectionContentElement className="flex items-center justify-top flex-col gap-6 sm:justify-center">
+        <SectionContentElement>
           <CampBriefing />
         </SectionContentElement>
-        <SectionContentElement className="flex items-center justify-top flex-col sm:justify-center">
+        <SectionContentElement>
           <VatInvocies />
         </SectionContentElement>
-        <SectionContentElement className="flex items-center justify-top flex-col sm:justify-center">
+        <SectionContentElement>
           <RefundsAndCancellations />
         </SectionContentElement>
         <SectionContentElement className="bg-cyan-950 text-right">

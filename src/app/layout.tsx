@@ -22,9 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.className} p-0 m-0 box-border overflow-hidden`}
-      >
+      <body className={`${montserrat.className} p-0 m-0 box-border overflow-x-hidden`}>
         <LanguageModeContextProvider>
           <Navbar />
           {children}

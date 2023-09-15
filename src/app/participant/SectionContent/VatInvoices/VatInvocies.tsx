@@ -7,8 +7,8 @@ const VatInvocies = () => {
   const usedLanguageText =
     languageMode === "polish" ? VatInvociesTextPL : VatInvociesTextEN;
   return (
-    <p className="text-xl w-4/6 mx-auto text-center py-4 break-words tracking-wide">
-      <TextWithCopyPattern text={usedLanguageText.content} pattern="@" />
+    <p className="text-xl text-center break-words tracking-wide w-full">
+      <TextWithCopyPattern text={usedLanguageText.content} pattern="@" slideIndex={4}/>
     </p>
   );
 };

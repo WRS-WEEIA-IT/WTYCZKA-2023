@@ -8,10 +8,10 @@ const CampBriefing = () => {
     languageMode === "polish" ? CampBriefingTextPL : CampBriefingTextEN;
   return (
     <>
-      <h2 className="text-3xl text-secondary-color text-center mt-4 w-4/6 mx-auto uppercase">
+      <h2 className="text-3xl text-secondary-color text-center uppercase">
         {usedLanguageText.date}
       </h2>
-      <h3 className="text-2xl text-center w-4/6 mx-auto">
+      <h3 className="text-2xl text-center">
         <TextWithAnchor
           text={usedLanguageText.heading}
           href={usedLanguageText.href}
@@ -19,7 +19,7 @@ const CampBriefing = () => {
           linkEnd={usedLanguageText.linkEnd}
         />
       </h3>
-      <p className="text-center w-4/6 mx-auto text-xl pb-4">
+      <p className="text-center text-xl">
         {usedLanguageText.content}
       </p>
     </>

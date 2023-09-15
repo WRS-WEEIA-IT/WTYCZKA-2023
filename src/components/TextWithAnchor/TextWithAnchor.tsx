@@ -15,7 +15,7 @@ const TextWithAnchor = ({
       <a
         href={href}
         target="_blank"
-        className="font-semibold hover:text-secondary-color transition-colors duration-300 ease-in-out underline underline-offset-4"
+        className="font-semibold hover:text-secondary-color transition-colors duration-300 ease-in-out underline underline-offset-[6px]"
       >
         {text.split(" ").slice(linkStart, linkEnd).join(" ")}
       </a>

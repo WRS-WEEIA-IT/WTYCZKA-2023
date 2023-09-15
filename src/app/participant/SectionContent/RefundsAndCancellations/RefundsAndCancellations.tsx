@@ -12,8 +12,8 @@ const RefundsAndCancellations = () => {
       ? RefundsAndCancellationsTextPL
       : RefundsAndCancellationsTextEN;
   return (
-    <p className="text-xl w-4/6 mx-auto text-center py-4 break-words tracking-wide">
-      <TextWithCopyPattern text={usedLanguageText.content} pattern="@" />
+    <p className="text-xl text-center break-words tracking-wide w-full">
+      <TextWithCopyPattern text={usedLanguageText.content} pattern="@" slideIndex={5}/>
     </p>
   );
 };

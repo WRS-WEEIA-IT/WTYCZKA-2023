@@ -1,17 +1,21 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import copyToClipboard from "@/functions/copyToClipboard";
 import removeBorderPunctiation from "@/functions/removeBorderPunctiation";
+import useScreenWidth from "@/hooks/useScreenWidth";
 import { useState } from "react";
 
 const TextWithCopyPattern = ({
   text,
   pattern,
+  slideIndex,
 }: {
   text: string;
   pattern: string;
+  slideIndex: number;
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const { languageMode } = useLanguageModeContext();
+  const screenWidth = useScreenWidth();
   return (
     <>
       {text.split(" ").map((word, index) => (
@@ -19,7 +23,7 @@ const TextWithCopyPattern = ({
           {word.includes(pattern) ? (
             <>
               <span
-                className="underline underline-offset-4 cursor-pointer"
+                className="underline underline-offset-[6px] cursor-pointer"
                 onClick={() => {
                   setIsPopupVisible(true);
                   setTimeout(() => {
@@ -29,20 +33,21 @@ const TextWithCopyPattern = ({
                 }}
               >
                 {word}
-              </span>{" "}
+              </span>
             </>
           ) : (
-            word + " "
-          )}
+            word
+          )}{" "}
         </span>
       ))}
-      <p
-        className={`absolute bg-active-color rounded-lg p-2 text-lg transition-all duration-500 ease-in-out shadow-xl shadow-black ${
+      <span
+        className={`absolute bg-active-color rounded-lg p-2 text-lg transition-all duration-500 ease-in-out shadow-xl shadow-black left-4 ${
           isPopupVisible ? "bottom-4" : "-bottom-16"
         }`}
+        style={{ transform: `translateX(${slideIndex * screenWidth}px)` }}
       >
         {languageMode === "polish" ? "Skopiowano" : "Copied"}
-      </p>
+      </span>
     </>
   );
 };
