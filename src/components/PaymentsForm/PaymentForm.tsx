@@ -1,16 +1,18 @@
 "use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
-import { Typography } from "@mui/material";
-import FormField from "../RegistrationForm/FormField";
+import { InputAdornment, TextField, Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
+import FormField from "../RegistrationForm/FormField";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 
 type FormValues = {
   name: string;
   email: string;
-  message: string;
+  pesel: string;
+  file: FileList;
 };
 
-const ContactForm = () => {
+const PaymentsForm = () => {
   const { languageMode } = useLanguageModeContext();
   const methods = useForm<FormValues>({ mode: "onChange" });
 
@@ -25,10 +27,10 @@ const ContactForm = () => {
           onSubmit={methods.handleSubmit(onSubmit)}
           className="px-32 py-8 flex flex-col gap-1 justify-center items-center"
         >
-          <Typography variant="h3" className=" text-center">
+          <Typography variant="h5" className=" text-center">
             {languageMode == "english"
-              ? "Contact form"
-              : "Formularz kontaktowy"}
+              ? "number of account for payment: xx xxxx xxxx xxxx xxxx"
+              : "Numer konta do płatności: xx xxxx xxxx xxxx xxxx"}
           </Typography>
           <div className="grid grid-cols-1 gap-1 justify-center items-center  min-w-[30rem]">
             <FormField
@@ -48,22 +50,35 @@ const ContactForm = () => {
               registerName="email"
             />
             <FormField
-              label={languageMode == "english" ? "Message" : "Wiadomość"}
+              label={"PESEL"}
               isRequired={false}
               minLength={3}
               maxLength={30}
-              registerName="message"
-              multiline={true}
+              registerName="pesel"
             />
+            <div className="flex flex-col w-auto m-4 gap-1">
+              <Typography variant="subtitle1">
+                {languageMode == "english"
+                  ? "Confirmation of the payment"
+                  : "Potwierdzenie wykonania przelewu"}
+              </Typography>
+              <TextField
+                type="file"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <UploadFileIcon sx={{ color: "white" }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
           </div>
           <div className="flex gap-4 py-8 justify-center items-center">
-            <button type="submit" className="button-round button-outlined">
-              {languageMode == "english"
-                ? "Contact via facebook"
-                : "Skontaktuj się przez facebooka"}
-            </button>
             <button type="submit" className="button-round button-filled">
-              {languageMode == "english" ? "Send message" : "Wyślij wiadomość"}
+              {languageMode == "english"
+                ? "Send payment confirmation"
+                : "Wyślij potwierdzenie płatności"}
             </button>
           </div>
         </form>
@@ -72,4 +87,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default PaymentsForm;

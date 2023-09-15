@@ -48,6 +48,9 @@ const theme = createTheme({
             "&.Mui-focused fieldset": {
               borderColor: "#b30080",
             },
+            "& .MuiInputBase-icon": {
+              color: "#ffffff",
+            },
           },
           "& .MuiInputBase-input": {
             color: "#ffffff",
