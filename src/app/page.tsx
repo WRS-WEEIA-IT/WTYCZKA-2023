@@ -37,7 +37,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section className="flex justify-center items-center">
+      <section>
         <Clock />
       </section>
     </main>
