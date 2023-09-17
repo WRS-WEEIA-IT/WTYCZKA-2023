@@ -61,22 +61,26 @@ const PaymentsForm = () => {
                   ? "Number of account for payment: xx xxxx xxxx xxxx xxxx"
                   : "Tytuł przelewu: WTYCZKA2023-ImieNazwisko  Kwota: xxx zł "}
               </Typography>
-              <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
-                <div className="xl:flex-row gap-1 flex flex-col">
-                  <FormField
-                    label={languageMode == "english" ? "Name" : "Imię"}
-                    isRequired={true}
-                    minLength={3}
-                    maxLength={30}
-                    registerName="name"
-                  />
-                  <FormField
-                    label={languageMode == "english" ? "Surname" : "Nazwisko"}
-                    isRequired={true}
-                    minLength={3}
-                    maxLength={30}
-                    registerName="surname"
-                  />
+              <div className="grid grid-cols-1 gap-1 justify-center items-center w-full sm:w-5/6 xl:w-1/2">
+                <div className="flex gap-1 w-full max-xl:flex-col">
+                  <div className="w-1/2 max-xl:w-full">
+                    <FormField
+                      label={languageMode == "english" ? "Name" : "Imię"}
+                      isRequired={true}
+                      minLength={3}
+                      maxLength={30}
+                      registerName="name"
+                    />
+                  </div>
+                  <div className="w-1/2 max-xl:w-full">
+                    <FormField
+                      label={languageMode == "english" ? "Surname" : "Nazwisko"}
+                      isRequired={true}
+                      minLength={3}
+                      maxLength={30}
+                      registerName="surname"
+                    />
+                  </div>
                 </div>
                 <FormField
                   label={

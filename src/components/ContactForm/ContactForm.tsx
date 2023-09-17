@@ -31,7 +31,7 @@ const ContactForm = () => {
               ? "Contact form"
               : "Formularz kontaktowy"}
           </Typography>
-          <div className="grid grid-cols-1 gap-1 justify-center items-center w-full xl:w-1/2">
+          <div className="grid grid-cols-1 gap-1 justify-center items-center w-full sm:w-5/6 xl:w-1/2">
             <FormField
               label={languageMode == "english" ? "Name" : "Imię"}
               isRequired={false}
