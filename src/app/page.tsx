@@ -9,7 +9,7 @@ import { checkoutMore } from "@/services/socialLinks";
 export default function Home() {
   const { languageMode } = useLanguageModeContext();
   return (
-    <main className="flex flex-wrap items-center justify-around gap-16 px-10 pb-8">
+    <main className="flex flex-wrap items-center justify-around gap-16 px-10 pb-8 overflow-y-scroll">
       <section className="flex flex-col items-center justify-center gap-6">
         <Image
           src={wtyczkaLogo}

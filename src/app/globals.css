@@ -16,7 +16,7 @@
   }
 
   .applyBasicButtonStyles {
-    @apply p-0 border-none bg-opacity-0 cursor-pointer font-bold whitespace-nowrap;
+    @apply p-0 border-none bg-opacity-0 cursor-pointer font-bold;
   }
 
   .button-square {
@@ -75,10 +75,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-image: url("/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
   min-height: 100svh;
+  background: url("/background.png") no-repeat right #000000;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 html {
@@ -89,7 +91,7 @@ html {
 }
 
 main {
-  min-height: calc(100svh - var(--nav-height) - 2px);
+  height: calc(100svh - var(--nav-height) - 2px);
 }
 
 .section-content-wrapper {
