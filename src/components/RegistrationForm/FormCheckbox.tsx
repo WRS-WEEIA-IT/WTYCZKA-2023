@@ -27,7 +27,7 @@ const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
         )}
       />
       <Typography variant="subtitle1" className="text-primary-color">
-        {languageMode == "english" ? "(required)" : "(wymagane)"}
+        *
       </Typography>
     </div>
   );

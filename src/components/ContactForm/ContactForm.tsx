@@ -20,7 +20,7 @@ const ContactForm = () => {
   };
 
   return (
-    <main className="overflow-y-scroll">
+    <main className="overflow-y-auto">
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(onSubmit)}

@@ -4,7 +4,7 @@ import { Facebook, Instagram } from "lucide-react";
 
 const Controls = () => {
   return (
-    <div className="flex gap-4 items-center justify-center">
+    <div className="flex gap-8 items-center justify-center xl:gap-4">
       <a href={facebookLink} target="_blank">
         <Facebook
           height={30}

@@ -65,14 +65,14 @@ const PaymentsForm = () => {
                 <div className="xl:flex-row gap-1 flex flex-col">
                   <FormField
                     label={languageMode == "english" ? "Name" : "Imię"}
-                    isRequired={false}
+                    isRequired={true}
                     minLength={3}
                     maxLength={30}
                     registerName="name"
                   />
                   <FormField
                     label={languageMode == "english" ? "Surname" : "Nazwisko"}
-                    isRequired={false}
+                    isRequired={true}
                     minLength={3}
                     maxLength={30}
                     registerName="surname"
@@ -84,14 +84,14 @@ const PaymentsForm = () => {
                       ? "E-mail address"
                       : "Adres e-mail"
                   }
-                  isRequired={false}
+                  isRequired={true}
                   minLength={3}
                   maxLength={30}
                   registerName="email"
                 />
                 <FormField
                   label={"PESEL"}
-                  isRequired={false}
+                  isRequired={true}
                   minLength={11}
                   maxLength={11}
                   registerName="pesel"
