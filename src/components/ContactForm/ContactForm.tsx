@@ -12,7 +12,7 @@ type FormValues = {
 
 const ContactForm = () => {
   const { languageMode } = useLanguageModeContext();
-  const methods = useForm<FormValues>({ mode: "onChange" });
+  const methods = useForm<FormValues>({ mode: "onBlur" });
 
   const onSubmit = (data: any) => {
     console.log(data);

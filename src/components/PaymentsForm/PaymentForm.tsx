@@ -9,6 +9,7 @@ import { useState } from "react";
 
 type FormValues = {
   name: string;
+  surname: string;
   email: string;
   pesel: string;
   file: FileList;
@@ -21,7 +22,7 @@ const PaymentsForm = () => {
   const WTYCZKA_PAYMENT_DEADLINE = "2023-09-18";
   const eventDate = new Date(WTYCZKA_PAYMENT_DEADLINE);
   const { languageMode } = useLanguageModeContext();
-  const methods = useForm<FormValues>({ mode: "onChange" });
+  const methods = useForm<FormValues>({ mode: "onBlur" });
 
   const countDaysLeft = () => {
     const currentDate = new Date();
@@ -55,7 +56,13 @@ const PaymentsForm = () => {
                   ? "Number of account for payment: xx xxxx xxxx xxxx xxxx"
                   : "Numer konta do płatności: xx xxxx xxxx xxxx xxxx"}
               </Typography>
+              <Typography variant="h5" className=" text-center">
+                {languageMode == "english"
+                  ? "Number of account for payment: xx xxxx xxxx xxxx xxxx"
+                  : "Tytuł przelewu: WTYCZKA2023-ImieNazwisko  Kwota: xxx zł "}
+              </Typography>
               <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
+                <div className="xl:flex-row gap-1 flex flex-col">
                 <FormField
                   label={languageMode == "english" ? "Name" : "Imię"}
                   isRequired={false}
@@ -63,6 +70,14 @@ const PaymentsForm = () => {
                   maxLength={30}
                   registerName="name"
                 />
+                <FormField
+                  label={languageMode == "english" ? "Surname" : "Nazwisko"}
+                  isRequired={false}
+                  minLength={3}
+                  maxLength={30}
+                  registerName="surname"
+                />
+                </div>
                 <FormField
                   label={
                     languageMode == "english"
@@ -91,7 +106,7 @@ const PaymentsForm = () => {
                     type="file"
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="end">
+                        <InputAdornment position="end" >
                           <UploadFileIcon sx={{ color: "white" }} />
                         </InputAdornment>
                       ),

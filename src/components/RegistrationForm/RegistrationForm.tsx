@@ -43,7 +43,7 @@ type FormValues = {
 };
 
 const RegistrationForm = () => {
-  const methods = useForm<FormValues>({ mode: "onChange" });
+  const methods = useForm<FormValues>({ mode: "onBlur" });
   const { languageMode } = useLanguageModeContext();
 
   const onSubmit = (data: FormValues) => {
