@@ -37,7 +37,7 @@ const MobileNavigation = ({ pathname }: { pathname: string }) => {
               viewport={{ amount: 0.2, once: false }}
               variants={createAnimateOnScroll(0.1)}
               key={index}
-              className={`hover:text-secondary-color transition-colors duration-300 text-base ${
+              className={`hover:text-secondary-color transition-colors duration-300 text-base w-full text-center ${
                 pathname === navLink.path ? "text-active-color" : "text-white"
               }`}
               onClick={handleMenuClose}
