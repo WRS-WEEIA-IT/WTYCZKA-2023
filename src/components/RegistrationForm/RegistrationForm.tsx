@@ -54,7 +54,6 @@ const RegistrationForm = () => {
     <FormProvider {...methods}>
       <form
         onSubmit={methods.handleSubmit(onSubmit)}
-        className="px-4 py-4 md:px-32 md:py-8"
       >
         <Typography variant="h3" className=" text-center pb-4">
           {languageMode == "english"
