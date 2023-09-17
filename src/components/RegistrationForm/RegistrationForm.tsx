@@ -52,16 +52,13 @@ const RegistrationForm = () => {
 
   return (
     <FormProvider {...methods}>
-      <form
-        onSubmit={methods.handleSubmit(onSubmit)}
-      >
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
         <Typography variant="h3" className=" text-center pb-4">
           {languageMode == "english"
             ? "Sign up for the trip"
             : "Zapisz się na wyjazd"}
         </Typography>
-        <Typography variant="h6" className="text-primary-color p-4"
-        >
+        <Typography variant="h6" className="text-primary-color p-4">
           {languageMode == "english"
             ? "Participant information"
             : "Informacje o uczestniku"}
@@ -138,8 +135,11 @@ const RegistrationForm = () => {
             maxLength={20}
           />
         </div>
-        <Typography variant="h6" className="text-primary-color "
-        sx={{ margin: "1rem"}}>
+        <Typography
+          variant="h6"
+          className="text-primary-color "
+          sx={{ margin: "1rem" }}
+        >
           {languageMode == "english" ? "Student details" : "Dane studenta"}
         </Typography>
         <div className="flex flex-col md:grid md:grid-cols-3">
@@ -172,8 +172,11 @@ const RegistrationForm = () => {
             options={sessionOptions.PL}
           />
         </div>
-        <Typography variant="h6" className="text-primary-color"
-        sx={{ margin: "1rem"}}>
+        <Typography
+          variant="h6"
+          className="text-primary-color"
+          sx={{ margin: "1rem" }}
+        >
           {languageMode == "english"
             ? "Additional questions"
             : "Dodatkowe informacje"}

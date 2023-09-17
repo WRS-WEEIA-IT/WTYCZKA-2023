@@ -49,7 +49,7 @@ const PaymentsForm = () => {
           <FormProvider {...methods}>
             <form
               onSubmit={methods.handleSubmit(onSubmit)}
-              className="md:px-32 md:py-8 px-4 py-4 flex flex-col gap-1 justify-center items-center"
+              className="flex flex-col gap-1 justify-center items-center"
             >
               <Typography variant="h5" className=" text-center">
                 {languageMode == "english"
@@ -63,20 +63,20 @@ const PaymentsForm = () => {
               </Typography>
               <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
                 <div className="xl:flex-row gap-1 flex flex-col">
-                <FormField
-                  label={languageMode == "english" ? "Name" : "Imię"}
-                  isRequired={false}
-                  minLength={3}
-                  maxLength={30}
-                  registerName="name"
-                />
-                <FormField
-                  label={languageMode == "english" ? "Surname" : "Nazwisko"}
-                  isRequired={false}
-                  minLength={3}
-                  maxLength={30}
-                  registerName="surname"
-                />
+                  <FormField
+                    label={languageMode == "english" ? "Name" : "Imię"}
+                    isRequired={false}
+                    minLength={3}
+                    maxLength={30}
+                    registerName="name"
+                  />
+                  <FormField
+                    label={languageMode == "english" ? "Surname" : "Nazwisko"}
+                    isRequired={false}
+                    minLength={3}
+                    maxLength={30}
+                    registerName="surname"
+                  />
                 </div>
                 <FormField
                   label={
@@ -106,7 +106,7 @@ const PaymentsForm = () => {
                     type="file"
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="end" >
+                        <InputAdornment position="end">
                           <UploadFileIcon sx={{ color: "white" }} />
                         </InputAdornment>
                       ),
@@ -128,7 +128,7 @@ const PaymentsForm = () => {
       );
     } else {
       return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-full text-center">
           <Typography variant="h5" className=" text-center text-primary-color">
             {languageMode == "english"
               ? "Currently we are not accepting payments!"

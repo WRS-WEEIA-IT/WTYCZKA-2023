@@ -3,12 +3,13 @@ import Clock from "@/components/Clock/Clock";
 import Image from "next/image";
 import wtyczkaLogo from "../../public/wtyczkaLogo/wtyczka-logo.png";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
-import { FORM_LINK } from "@/services/formLink";
+import Link from "next/link";
+import { checkoutMore } from "@/services/socialLinks";
 
 export default function Home() {
   const { languageMode } = useLanguageModeContext();
   return (
-    <main className="flex flex-wrap items-center justify-around h-full gap-8 px-10">
+    <main className="flex flex-wrap items-center justify-around gap-16 px-10 pb-8">
       <section className="flex flex-col items-center justify-center gap-6">
         <Image
           src={wtyczkaLogo}
@@ -22,20 +23,21 @@ export default function Home() {
             : "wyjazd integracyjno-szkoleniowy"}
         </h2>
         <div className="flex flex-wrap gap-4 items-center justify-center">
-          <button
-            className="button-round button-filled"
-            onClick={() => window.open(FORM_LINK, "_blank")}
-          >
-            {languageMode === "english" ? "Sign up" : "Zapisz się"}
-          </button>
-          <button className="button-round button-outlined">
-            {languageMode === "english"
-              ? "Find out more"
-              : "Dowiedz się więcej"}
-          </button>
+          <Link href="/participant">
+            <button className="button-round button-filled">
+              {languageMode === "english" ? "Sign up" : "Zapisz się"}
+            </button>
+          </Link>
+          <a href={checkoutMore} target="_blank">
+            <button className="button-round button-outlined">
+              {languageMode === "english"
+                ? "Find out more"
+                : "Dowiedz się więcej"}
+            </button>
+          </a>
         </div>
       </section>
-      <section className="py-8">
+      <section>
         <Clock />
       </section>
     </main>

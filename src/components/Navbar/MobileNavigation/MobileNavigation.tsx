@@ -27,7 +27,7 @@ const MobileNavigation = ({ pathname }: { pathname: string }) => {
       <div
         className={`absolute ${
           isMenuOpen ? "top-full opacity-100" : "-top-60 opacity-0"
-        } transition-all duration-500 bg-black w-screen flex items-center justify-center flex-col gap-4 py-4 origin-top -z-10 left-0`}
+        } transition-all duration-500 bg-mobile-grey w-screen flex items-center justify-center flex-col gap-4 py-4 origin-top -z-10 left-0`}
       >
         {(languageMode == "polish" ? navLinksPL : navLinksEN).map(
           (navLink, index) => (

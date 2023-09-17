@@ -27,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} h-screen p-0 m-0 box-border`}>
+      <body
+        className={`${montserrat.className} p-0 m-0 box-border overflow-x-hidden`}
+      >
         <ThemeProvider theme={theme}>
           <LanguageModeContextProvider>
             <Navbar />

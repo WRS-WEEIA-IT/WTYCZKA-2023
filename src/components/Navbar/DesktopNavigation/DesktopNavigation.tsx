@@ -1,5 +1,4 @@
 import { createAnimateOnScroll } from "../../../animations/animateOnScroll";
-import { FORM_LINK } from "@/services/formLink";
 import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Controls from "../Controls/Controls";
@@ -35,12 +34,12 @@ const DesktopNavigation = ({ pathname }: { pathname: string }) => {
       </div>
       <div className="flex items-center justify-center gap-6">
         <Controls />
-        <a href={FORM_LINK} target="_blank" rel="noopener noreferrer">
+        <Link href="/participant">
           <button className="button-square button-filled flex gap-2 py-3 group">
             <span>{languageMode == "polish" ? "Zapisz się" : "Sign up"}</span>
             <ArrowRight className="group-hover:animate-spring-right" />
           </button>
-        </a>
+        </Link>
       </div>
     </>
   );

@@ -7,7 +7,7 @@ const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
   const { control } = useFormContext();
 
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <Controller
         control={control}
         name={name}
@@ -26,7 +26,7 @@ const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
           />
         )}
       />
-      <Typography variant="subtitle1" className="text-primary-color mt-[10px]">
+      <Typography variant="subtitle1" className="text-primary-color">
         {languageMode == "english" ? "(required)" : "(wymagane)"}
       </Typography>
     </div>

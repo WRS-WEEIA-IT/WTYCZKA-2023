@@ -9,36 +9,37 @@ import VatInvoices from "./SectionContent/VatInvoices/VatInvoices";
 import RefundsAndCancellations from "./SectionContent/RefundsAndCancellations/RefundsAndCancellations";
 import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 import PaymentsForm from "@/components/PaymentsForm/PaymentForm";
+import Consequences from "./SectionContent/Consequences/Consequences";
 
 export default function Participant() {
   const [selectedSection, setSelectedSection] = useState(0);
   return (
-    <main className="h-full flex flex-col">
+    <main className="flex flex-col">
       <SectionHeaders
         selectedSection={selectedSection}
         setSelectedSection={setSelectedSection}
       />
       <SectionContent selectedSection={selectedSection}>
-        <SectionContentElement className="bg-black text-left justify-start">
-            <RegistrationForm />
+        <SectionContentElement>
+          <RegistrationForm />
         </SectionContentElement>
-        <SectionContentElement className="bg-black text-left justify-start">
-            <PaymentsForm />
+        <SectionContentElement>
+          <PaymentsForm />
         </SectionContentElement>
-        <SectionContentElement className="flex">
+        <SectionContentElement className="flex flex-col items-center justify-top gap-6 xl:justify-center">
           <ParticipantEssentials />
         </SectionContentElement>
-        <SectionContentElement className="flex">
+        <SectionContentElement className="flex flex-col items-center justify-top gap-6 xl:justify-center">
           <CampBriefing />
         </SectionContentElement>
-        <SectionContentElement className="flex">
+        <SectionContentElement className="flex flex-col items-center justify-top gap-6 xl:justify-center">
           <VatInvoices />
         </SectionContentElement>
-        <SectionContentElement className="flex">
+        <SectionContentElement className="flex flex-col items-center justify-top gap-6 xl:justify-center">
           <RefundsAndCancellations />
         </SectionContentElement>
-        <SectionContentElement className="bg-cyan-950 text-right">
-          <span>Content 7</span>
+        <SectionContentElement className="flex flex-col items-center justify-top gap-6 xl:justify-center">
+          <Consequences />
         </SectionContentElement>
       </SectionContent>
     </main>
