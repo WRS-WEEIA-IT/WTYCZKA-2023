@@ -1,10 +1,7 @@
-const SectionContent = ({
-  selectedSection,
-  children,
-}: {
-  selectedSection: number;
-  children: React.ReactNode;
-}) => {
+import { useSelectedSectionContext } from "@/contexts/SelectedSectionContext";
+
+const SectionContent = ({ children }: { children: React.ReactNode }) => {
+  const { selectedSection } = useSelectedSectionContext();
   return (
     <section className="overflow-hidden section-content-wrapper">
       <div

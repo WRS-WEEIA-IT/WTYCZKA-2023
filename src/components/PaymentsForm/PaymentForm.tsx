@@ -58,23 +58,23 @@ const PaymentsForm = () => {
               </Typography>
               <Typography variant="h5" className=" text-center">
                 {languageMode == "english"
-                  ? "Number of account for payment: xx xxxx xxxx xxxx xxxx"
+                  ? "Title of the transfer: WTYCZKA2023-FirstNameLastName  Amount: xxx zł"
                   : "Tytuł przelewu: WTYCZKA2023-ImieNazwisko  Kwota: xxx zł "}
               </Typography>
               <div className="grid grid-cols-1 gap-1 justify-center items-center w-full sm:w-5/6 xl:w-1/2">
                 <div className="flex gap-1 w-full max-xl:flex-col">
-                  <div className="w-1/2 max-xl:w-full">
+                  <div className="w-full">
                     <FormField
-                      label={languageMode == "english" ? "Name" : "Imię"}
+                      label={languageMode == "english" ? "First name" : "Imię"}
                       isRequired={true}
                       minLength={3}
                       maxLength={30}
                       registerName="name"
                     />
                   </div>
-                  <div className="w-1/2 max-xl:w-full">
+                  <div className="w-full">
                     <FormField
-                      label={languageMode == "english" ? "Surname" : "Nazwisko"}
+                      label={languageMode == "english" ? "Last Name" : "Nazwisko"}
                       isRequired={true}
                       minLength={3}
                       maxLength={30}

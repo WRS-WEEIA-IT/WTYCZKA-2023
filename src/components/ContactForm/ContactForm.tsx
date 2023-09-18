@@ -33,7 +33,7 @@ const ContactForm = () => {
           </Typography>
           <div className="grid grid-cols-1 gap-1 justify-center items-center w-full sm:w-5/6 xl:w-1/2">
             <FormField
-              label={languageMode == "english" ? "Name" : "Imię"}
+              label={languageMode == "english" ? "First name" : "Imię"}
               isRequired={false}
               minLength={3}
               maxLength={30}

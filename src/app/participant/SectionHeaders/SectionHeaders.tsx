@@ -1,13 +1,9 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { headersEN, headersPL } from "./headers";
+import { useSelectedSectionContext } from "@/contexts/SelectedSectionContext";
 
-const SectionHeaders = ({
-  selectedSection,
-  setSelectedSection,
-}: {
-  selectedSection: number;
-  setSelectedSection: React.Dispatch<React.SetStateAction<number>>;
-}) => {
+const SectionHeaders = () => {
+  const { selectedSection, setSelectedSection } = useSelectedSectionContext();
   const { languageMode } = useLanguageModeContext();
   return (
     <section

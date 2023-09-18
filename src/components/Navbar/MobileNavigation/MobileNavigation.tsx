@@ -38,13 +38,23 @@ const MobileNavigation = ({ pathname }: { pathname: string }) => {
               variants={createAnimateOnScroll(0.1)}
               key={index}
               className={`hover:text-secondary-color transition-colors duration-300 text-base w-full text-center ${
-                pathname === navLink.path ? "text-active-color" : "text-white"
+                pathname === navLink.href ? "text-active-color" : "text-white"
               }`}
               onClick={handleMenuClose}
             >
-              <Link href={navLink.path} className="text-xl block">
-                {navLink.title}
-              </Link>
+              {navLink.isInternal ? (
+                <Link href={navLink.href} className="text-xl block">
+                  {navLink.title}
+                </Link>
+              ) : (
+                <a
+                  href={navLink.href}
+                  target="_blank"
+                  className="text-xl block"
+                >
+                  {navLink.title}
+                </a>
+              )}
             </m.div>
           )
         )}
