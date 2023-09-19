@@ -1,4 +1,3 @@
-import { createAnimateOnScroll } from "../../../animations/animateOnScroll";
 import NavIcon from "@/customIcons/NavIcon/NavIcon";
 import { m } from "framer-motion";
 import Link from "next/link";
@@ -35,7 +34,6 @@ const MobileNavigation = ({ pathname }: { pathname: string }) => {
               initial="visible"
               whileInView="visible"
               viewport={{ amount: 0.2, once: false }}
-              variants={createAnimateOnScroll(0.1)}
               key={index}
               className={`hover:text-secondary-color transition-colors duration-300 text-base w-full text-center ${
                 pathname === navLink.href ? "text-active-color" : "text-white"
