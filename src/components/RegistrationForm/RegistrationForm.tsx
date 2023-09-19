@@ -23,10 +23,8 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { registrationType, registrationTypeInitial } from "./registrationType";
 
-type FormValues = registrationType;
-
 const RegistrationForm = () => {
-  const methods = useForm<FormValues>({
+  const methods = useForm<registrationType>({
     mode: "onBlur",
     defaultValues: registrationTypeInitial,
   });
@@ -34,13 +32,13 @@ const RegistrationForm = () => {
   const daysLeft = useDaysLeft(REGISTRATION_DATE);
   const registrationCollectionRef = collection(db, "registration");
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: registrationType) => {
     try {
       await addDoc(registrationCollectionRef, data);
     } catch (e) {
       console.error("Error adding document: ", e);
     } finally {
-      console.log(data);
+      methods.reset();
     }
   };
 
@@ -230,7 +228,6 @@ const RegistrationForm = () => {
           </button>
         </div>
       </form>
-      {/* <DevTool control={methods.control} /> */}
     </FormProvider>
   );
 };
