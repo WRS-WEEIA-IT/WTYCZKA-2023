@@ -6,6 +6,9 @@ export const MuiSetup = {
     secondary: {
       main: "#000000",
     },
+    success: {
+      main: "#ff4dcc",
+    },
   },
   typography: {
     fontFamily: "Montserrat, sans-serif",

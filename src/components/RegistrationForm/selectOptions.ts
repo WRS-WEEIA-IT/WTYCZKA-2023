@@ -10,26 +10,25 @@ export const DegreeOptions = {
 
 export const FacultyOptions = {
   PL: [
-    "Mechaniczny",
-    "WEEIA",
+    "EEIA",
     "Chemiczny",
     "Materiałów i Wzornictwa",
     "BINOŻ",
-    "BAIS",
+    "BAIŚ",
     "FTIMS",
     "Organizacji i Zarządzania",
-    "WIPOS",
+    "IPOS",
   ],
   EN: [
     "Mechanical",
-    "WEEIA",
+    "EEIA",
     "Chemical",
     "Materials and Design",
-    "BINOZ",
-    "BAIS",
+    "BINOŻ",
+    "BAIŚ",
     "FTIMS",
     "Organization and Management",
-    "WIPOS",
+    "IPOS",
   ],
 };
 
