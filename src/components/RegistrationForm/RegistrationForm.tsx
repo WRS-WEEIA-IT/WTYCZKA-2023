@@ -24,6 +24,7 @@ import { db } from "@/config/firebase";
 import { registrationType, registrationTypeInitial } from "./registrationType";
 import { useState } from "react";
 import Toast from "../Toast/Toast";
+import { DevTool } from "@hookform/devtools";
 
 const RegistrationForm = () => {
   const methods = useForm<registrationType>({
@@ -235,6 +236,7 @@ const RegistrationForm = () => {
         </div>
       </form>
       <Toast setOpen={setOpen} open={open} error={isError} />
+      <DevTool control={methods.control} />
     </FormProvider>
   );
 };
