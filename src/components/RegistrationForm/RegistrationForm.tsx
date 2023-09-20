@@ -15,7 +15,7 @@ import {
   SourceOptions,
   StatuteConsentLabel,
 } from "./selectOptions";
-import { Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 import FormCheckbox from "./FormCheckbox";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "@/config/firebase";
@@ -31,18 +31,23 @@ const RegistrationForm = () => {
   const { languageMode } = useLanguageModeContext();
   const registrationCollectionRef = collection(db, "registration");
   const [open, setOpen] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isSubmitError, setIsSubmitError] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isFetchError, setIsFetchError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const setRegistrationState = async () => {
       try {
         const data = await getDocs(collection(db, "formStates"));
-        const registrationState = data.docs.map((doc) => ({
+        const forms = data.docs.map((doc) => ({
           ...doc.data(),
         }));
-        setIsRegistrationOpen(registrationState[0].isOpen);
+        const registration = forms.filter(
+          (state) => state.form === "registration"
+        );
+        setIsRegistrationOpen(registration[0].isOpen);
+        setIsLoading(false);
       } catch (e) {
         setIsFetchError(true);
       }
@@ -55,9 +60,9 @@ const RegistrationForm = () => {
     try {
       await addDoc(registrationCollectionRef, data);
     } catch (e) {
-      setIsError(true);
+      setIsSubmitError(true);
     } finally {
-      setIsError(false);
+      setIsSubmitError(false);
       setOpen(true);
       methods.reset();
     }
@@ -79,6 +84,12 @@ const RegistrationForm = () => {
             ? "Try again later"
             : "Spróbuj ponownie później"}
         </Typography>
+      </div>
+    );
+  } else if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center">
+        <CircularProgress color="primary" />
       </div>
     );
   } else if (!isRegistrationOpen) {
@@ -287,7 +298,7 @@ const RegistrationForm = () => {
           </button>
         </div>
       </form>
-      <Toast setOpen={setOpen} open={open} error={isError} />
+      <Toast setOpen={setOpen} open={open} error={isSubmitError} />
     </FormProvider>
   );
 };
