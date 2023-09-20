@@ -1,4 +1,4 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, set, useForm } from "react-hook-form";
 import FormField from "./FormField";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import FormSelect from "./FormSelect";
@@ -17,14 +17,11 @@ import {
 } from "./selectOptions";
 import { Typography } from "@mui/material";
 import FormCheckbox from "./FormCheckbox";
-import useDaysLeft from "@/hooks/useDaysLeft";
-import { REGISTRATION_DATE } from "@/constants/eventDates";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { registrationType, registrationTypeInitial } from "./registrationType";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Toast from "../Toast/Toast";
-import { DevTool } from "@hookform/devtools";
 
 const RegistrationForm = () => {
   const methods = useForm<registrationType>({
@@ -32,10 +29,27 @@ const RegistrationForm = () => {
     defaultValues: registrationTypeInitial,
   });
   const { languageMode } = useLanguageModeContext();
-  const daysLeft = useDaysLeft(REGISTRATION_DATE);
   const registrationCollectionRef = collection(db, "registration");
   const [open, setOpen] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [isFetchError, setIsFetchError] = useState(false);
+
+  useEffect(() => {
+    const setRegistrationState = async () => {
+      try {
+        const data = await getDocs(collection(db, "formStates"));
+        const registrationState = data.docs.map((doc) => ({
+          ...doc.data(),
+        }));
+        setIsRegistrationOpen(registrationState[0].isOpen);
+      } catch (e) {
+        setIsFetchError(true);
+      }
+    };
+
+    setRegistrationState();
+  }, []);
 
   const onSubmit = async (data: registrationType) => {
     try {
@@ -48,6 +62,44 @@ const RegistrationForm = () => {
       methods.reset();
     }
   };
+
+  if (isFetchError) {
+    return (
+      <div className="flex flex-col items-center justify-center">
+        <Typography
+          variant="h3"
+          className=" text-center pb-4 text-primary-color"
+        >
+          {languageMode == "english"
+            ? "Something went wrong"
+            : "Coś poszło nie tak"}
+        </Typography>
+        <Typography variant="h6" className="text-primary-color p-4">
+          {languageMode == "english"
+            ? "Try again later"
+            : "Spróbuj ponownie później"}
+        </Typography>
+      </div>
+    );
+  } else if (!isRegistrationOpen) {
+    return (
+      <div className="flex flex-col items-center justify-center">
+        <Typography
+          variant="h3"
+          className=" text-center pb-4 text-primary-color"
+        >
+          {languageMode == "english"
+            ? "Registration is closed"
+            : "Zapisy są zamknięte"}
+        </Typography>
+        <Typography variant="h6" className="text-primary-color p-4">
+          {languageMode == "english"
+            ? "Try again later"
+            : "Spróbuj ponownie później"}
+        </Typography>
+      </div>
+    );
+  }
 
   return (
     <FormProvider {...methods}>
@@ -236,7 +288,6 @@ const RegistrationForm = () => {
         </div>
       </form>
       <Toast setOpen={setOpen} open={open} error={isError} />
-      <DevTool control={methods.control} />
     </FormProvider>
   );
 };
