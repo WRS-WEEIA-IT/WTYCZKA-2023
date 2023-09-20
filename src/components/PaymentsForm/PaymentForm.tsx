@@ -4,7 +4,6 @@ import { InputAdornment, TextField, Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import FormField from "../RegistrationForm/FormField";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { DevTool } from "@hookform/devtools";
 import useDaysLeft from "@/hooks/useDaysLeft";
 import { PAYMENT_DATE } from "@/constants/eventDates";
 import { addDoc, collection } from "firebase/firestore";
@@ -40,7 +39,7 @@ const PaymentsForm = () => {
   };
 
   const setPaymentStage = () => {
-    if (daysLeft <= 0) {
+    if (daysLeft >= 0) {
       return (
         <div>
           <FormProvider {...methods}>
@@ -55,8 +54,8 @@ const PaymentsForm = () => {
               </Typography>
               <Typography variant="h5" className=" text-center">
                 {languageMode == "english"
-                  ? "Title of the transfer: WTYCZKA2023-FirstNameLastName  Amount: xxx zł"
-                  : "Tytuł przelewu: WTYCZKA2023-ImieNazwisko  Kwota: xxx zł "}
+                  ? "Title of the transfer: WTYCZKA2023-FirstNameLastName  Amount: 450 zł"
+                  : "Tytuł przelewu: WTYCZKA2023-ImieNazwisko  Kwota: 450 zł "}
               </Typography>
               <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
                 <div className="xl:flex-row gap-1 flex flex-col">

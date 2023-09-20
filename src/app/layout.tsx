@@ -18,9 +18,6 @@ export const metadata: Metadata = {
   title: "Wtyczka",
   description: "Oficjalna strona zapisów na Wtyczkę 2023",
   keywords: ["Wtyczka", "WEEIA", "Wyjazd WEEIA", "Integracja"],
-  icons: {
-    icon: "/logo/favicon.png",
-  },
 };
 
 const theme = createTheme(MuiSetup);

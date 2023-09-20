@@ -22,6 +22,8 @@ import { REGISTRATION_DATE } from "@/constants/eventDates";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { registrationType, registrationTypeInitial } from "./registrationType";
+import { useState } from "react";
+import Toast from "../Toast/Toast";
 
 const RegistrationForm = () => {
   const methods = useForm<registrationType>({
@@ -31,13 +33,17 @@ const RegistrationForm = () => {
   const { languageMode } = useLanguageModeContext();
   const daysLeft = useDaysLeft(REGISTRATION_DATE);
   const registrationCollectionRef = collection(db, "registration");
+  const [open, setOpen] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const onSubmit = async (data: registrationType) => {
     try {
       await addDoc(registrationCollectionRef, data);
     } catch (e) {
-      console.error("Error adding document: ", e);
+      setIsError(true);
     } finally {
+      setIsError(false);
+      setOpen(true);
       methods.reset();
     }
   };
@@ -228,6 +234,7 @@ const RegistrationForm = () => {
           </button>
         </div>
       </form>
+      <Toast setOpen={setOpen} open={open} error={isError} />
     </FormProvider>
   );
 };
