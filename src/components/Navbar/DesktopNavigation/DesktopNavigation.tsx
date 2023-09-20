@@ -1,4 +1,3 @@
-import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Controls from "../Controls/Controls";
 import { navLinksPL, navLinksEN, PARTICIPANT_PAGE } from "../NavLinks";
@@ -18,7 +17,7 @@ const DesktopNavigation = ({ pathname }: { pathname: string }) => {
             <AnimateWrapper
               duration={1}
               delay={0.1 * (index + 1)}
-              type="FadeInTop"
+              type="FadeInLeft"
               key={index}
               className={`hover:text-secondary-color transition-colors duration-300 ${
                 pathname === navLink.href ? "text-active-color" : "text-white"
@@ -37,10 +36,10 @@ const DesktopNavigation = ({ pathname }: { pathname: string }) => {
       </div>
       <div className="flex items-center justify-center gap-6">
         <Controls />
-        <AnimateWrapper duration={1} delay={0.8} type="FadeInTop">
+        <AnimateWrapper duration={1} delay={0.8} type="FadeInLeft">
           <Link href={PARTICIPANT_PAGE}>
             <button
-              className="button-square button-filled flex gap-2 py-3 group"
+              className="button-square button-filled flex gap-2 group"
               onClick={() => setSelectedSection(0)}
             >
               <span>{languageMode == "polish" ? "Zapisz się" : "Sign up"}</span>

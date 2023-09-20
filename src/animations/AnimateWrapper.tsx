@@ -6,12 +6,14 @@ const AnimateWrapper = ({
   duration,
   delay,
   type,
+  once,
   className,
 }: {
   children: React.ReactNode;
   duration: number;
   delay: number;
   type: "FadeInLeft" | "FadeInRight" | "FadeInBottom" | "FadeInTop";
+  once?: boolean;
   className?: string;
 }) => {
   const animationVariant = getAnimationVariants(type);
@@ -20,7 +22,8 @@ const AnimateWrapper = ({
       initial={animationVariant.initial}
       whileInView={animationVariant.whileInView}
       transition={{ type: "spring", duration: duration, delay: delay }}
-      className={className}
+      className={`overflow-hidden ${className ? className : ""}`}
+      viewport={{ once: once ? once : false }}
     >
       {children}
     </motion.div>

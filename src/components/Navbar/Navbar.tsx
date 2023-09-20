@@ -15,7 +15,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    setCustomHeightProperty("navbar", "--navbar-height");
+    setCustomHeightProperty("navbar", "--nav-height");
     setCustomHeightProperty("section-headers", "--section-headers-height");
   }, [screenWidth]);
 
@@ -29,7 +29,7 @@ const Navbar = () => {
       id="navbar"
     >
       <section className="flex items-center justify-evenly">
-        <AnimateWrapper duration={1} delay={0} type="FadeInTop">
+        <AnimateWrapper duration={1} delay={0} type="FadeInLeft">
           <Link
             href={MAIN_PAGE}
             className="cursor-pointer font-bold tracking-widest uppercase text-2xl hover:text-secondary-color transition-colors duration-300"
