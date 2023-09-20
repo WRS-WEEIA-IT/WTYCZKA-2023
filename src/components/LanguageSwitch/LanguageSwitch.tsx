@@ -12,7 +12,7 @@ const LanguageSwitch = ({ className }: { className?: string }) => {
     );
   };
   return (
-    <AnimateWrapper duration={1} delay={0.7} type="FadeInTop">
+    <AnimateWrapper duration={1} delay={0.7} type="FadeInLeft">
       <div
         className={`cursor-pointer flex ${className}`}
         onClick={toggleLanguageMode}

@@ -12,17 +12,17 @@ const Clock = () => {
     if (daysLeft > 0) {
       return (
         <>
-          <AnimateWrapper duration={1} delay={0.1} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.1} type="FadeInBottom">
             <p className="date-label">
               {languageMode == "polish"
                 ? "26 PAŹDZIERNIKA 2023"
                 : "26 OCTOBER 2023"}
             </p>
           </AnimateWrapper>
-          <AnimateWrapper duration={1} delay={0.2} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.2} type="FadeInBottom">
             <h1 className="date-counter">{daysLeft}</h1>
           </AnimateWrapper>
-          <AnimateWrapper duration={1} delay={0.3} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.3} type="FadeInBottom">
             <p className="counter-label">
               {daysLeft == 1
                 ? languageMode == "polish"
@@ -38,12 +38,12 @@ const Clock = () => {
     } else if (daysLeft === 0) {
       return (
         <>
-          <AnimateWrapper duration={1} delay={0.1} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.1} type="FadeInBottom">
             <h3 className="font-semibold text-small-label">
               {languageMode == "polish" ? "Wydarzenie" : "The event"}
             </h3>
           </AnimateWrapper>
-          <AnimateWrapper duration={1} delay={0.2} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.2} type="FadeInBottom">
             <h2 className="mt-[0.2rem] text-bigger-label font-bold">
               {languageMode == "polish" ? "Trwa" : "Has begun"}
             </h2>
@@ -53,17 +53,17 @@ const Clock = () => {
     } else {
       return (
         <>
-          <AnimateWrapper duration={1} delay={0.1} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.1} type="FadeInBottom">
             <p className="date-label">
               {languageMode == "polish"
                 ? "Wydarzenie odbyło się"
                 : "The event was"}
             </p>
           </AnimateWrapper>
-          <AnimateWrapper duration={1} delay={0.2} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.2} type="FadeInBottom">
             <h1 className="date-counter">{-daysLeft}</h1>
           </AnimateWrapper>
-          <AnimateWrapper duration={1} delay={0.3} type="FadeInRight">
+          <AnimateWrapper duration={1} delay={0.3} type="FadeInBottom">
             <p className="counter-label">
               {daysLeft == -1
                 ? languageMode == "polish"

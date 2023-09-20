@@ -6,7 +6,7 @@ import { Facebook, Instagram } from "lucide-react";
 const Controls = () => {
   return (
     <div className="flex gap-8 items-center justify-center xl:gap-4">
-      <AnimateWrapper duration={1} delay={0.5} type="FadeInTop">
+      <AnimateWrapper duration={1} delay={0.5} type="FadeInLeft">
         <a href={facebookLink} target="_blank">
           <Facebook
             height={30}
@@ -15,7 +15,7 @@ const Controls = () => {
           />
         </a>
       </AnimateWrapper>
-      <AnimateWrapper duration={1} delay={0.6} type="FadeInTop">
+      <AnimateWrapper duration={1} delay={0.6} type="FadeInLeft">
         <a href={instagramLink} target="_blank">
           <Instagram
             height={30}
