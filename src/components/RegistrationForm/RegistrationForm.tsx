@@ -1,4 +1,4 @@
-import { FormProvider, set, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import FormField from "./FormField";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import FormSelect from "./FormSelect";
@@ -47,9 +47,10 @@ const RegistrationForm = () => {
           (state) => state.form === "registration"
         );
         setIsRegistrationOpen(registration[0].isOpen);
-        setIsLoading(false);
       } catch (e) {
         setIsFetchError(true);
+      } finally {
+        setIsLoading(false);
       }
     };
 
