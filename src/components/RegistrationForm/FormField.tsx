@@ -52,7 +52,7 @@ const FormField = ({
         variant="outlined"
         fullWidth
         multiline={multiline}
-        maxRows={multiline ? 8 : 1}
+        // maxRows={multiline ? 8 : 1}
         rows={multiline ? 8 : 1}
         {...register(registerName, {
           required: isRequired,
