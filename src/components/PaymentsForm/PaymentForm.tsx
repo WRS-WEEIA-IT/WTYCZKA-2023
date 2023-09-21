@@ -39,9 +39,10 @@ const PaymentsForm = () => {
         }));
         const payment = forms.filter((state) => state.form === "payment");
         setIsPaymentOpen(payment[0].isOpen);
-        setIsLoading(false);
       } catch (e) {
         setIsFetchError(true);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -132,7 +133,7 @@ const PaymentsForm = () => {
               registerName="firstName"
             />
             <FormField
-              label={languageMode == "english" ? "Surname" : "Nazwisko"}
+              label={languageMode == "english" ? "Last name" : "Nazwisko"}
               isRequired={false}
               minLength={3}
               maxLength={30}
