@@ -10,11 +10,12 @@ export const DegreeOptions = {
 
 export const FacultyOptions = {
   PL: [
+    "Mechaniczny",
     "EEIA",
     "Chemiczny",
     "Materiałów i Wzornictwa",
     "BINOŻ",
-    "BAIŚ",
+    "BAIS",
     "FTIMS",
     "Organizacji i Zarządzania",
     "IPOS",
@@ -24,8 +25,8 @@ export const FacultyOptions = {
     "EEIA",
     "Chemical",
     "Materials and Design",
-    "BINOŻ",
-    "BAIŚ",
+    "BINOZ",
+    "BAIS",
     "FTIMS",
     "Organization and Management",
     "IPOS",
@@ -33,14 +34,8 @@ export const FacultyOptions = {
 };
 
 export const DietOptions = {
-  PL: [
-    "standardowa",
-    "wegetariańska",
-    "wegańska",
-    "bezglutenowa",
-    "bez laktozy",
-  ],
-  EN: ["standard", "vegetarian", "vegan", "gluten free", "lactose free"],
+  PL: ["standardowa", "wegetariańska", "piątek bez mięsa"],
+  EN: ["standard", "vegetarian", "friday without meat"],
 };
 
 export const ShirtSizeOptions = {
@@ -51,23 +46,12 @@ export const SourceOptions = {
   PL: [
     "Facebook",
     "Instagram",
-    "Twitter",
-    "Snapchat",
     "Strona internetowa",
     "Znajomi",
     "Plakat",
     "Inne",
   ],
-  EN: [
-    "Facebook",
-    "Instagram",
-    "Twitter",
-    "Snapchat",
-    "Website",
-    "Friends",
-    "Poster",
-    "Other",
-  ],
+  EN: ["Facebook", "Instagram", "Website", "Friends", "Poster", "Other"],
 };
 
 export const InvoiceOptions = {

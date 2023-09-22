@@ -8,7 +8,7 @@ export type registrationType = {
   postalCode: string;
   city: string;
   street: string;
-  force: string;
+  faculty: string;
   indexNumber: string;
   degree: string;
   session: string;
@@ -31,7 +31,7 @@ export const registrationTypeInitial: registrationType = {
   postalCode: "",
   city: "",
   street: "",
-  force: "",
+  faculty: "",
   indexNumber: "",
   degree: "",
   session: "",

@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
-import FormField from "../RegistrationForm/FormField";
+import FormField from "../formComponents/FormField";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import useDaysLeft from "@/hooks/useDaysLeft";
 import { PAYMENT_DATE } from "@/constants/eventDates";
@@ -126,7 +126,7 @@ const PaymentsForm = () => {
         <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
           <div className="xl:flex-row gap-1 flex flex-col">
             <FormField
-              label={languageMode == "english" ? "Name" : "Imię"}
+              label={languageMode == "english" ? "First name" : "Imię"}
               isRequired={false}
               minLength={3}
               maxLength={30}
@@ -148,6 +148,7 @@ const PaymentsForm = () => {
             minLength={3}
             maxLength={30}
             registerName="email"
+            fieldType="mail"
           />
           <FormField
             label={"PESEL"}
@@ -183,7 +184,12 @@ const PaymentsForm = () => {
           </button>
         </div>
       </form>
-      <Toast setOpen={setOpen} open={open} error={isSubmitError} />
+      <Toast
+        setOpen={setOpen}
+        open={open}
+        error={isSubmitError}
+        slideIndex={1}
+      />
     </FormProvider>
   );
 };
