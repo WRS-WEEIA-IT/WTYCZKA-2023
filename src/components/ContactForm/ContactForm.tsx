@@ -6,7 +6,6 @@ import { facebookLink } from "@/services/socialLinks";
 import AnimateWrapper from "@/animations/AnimateWrapper";
 import { useState } from "react";
 import Toast from "../Toast/Toast";
-import { DevTool } from "@hookform/devtools";
 import FormField from "../formComponents/FormField";
 
 type FormValues = {
@@ -137,7 +136,6 @@ const ContactForm = () => {
           </div>
         </form>
         <Toast open={open} setOpen={setOpen} error={isSendError} />
-        <DevTool control={methods.control} />
       </FormProvider>
     </main>
   );

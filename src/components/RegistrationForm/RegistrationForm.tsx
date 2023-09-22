@@ -1,7 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { CircularProgress, Typography } from "@mui/material";
-import FormCheckbox from "../formComponents/FormCheckbox";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { registrationType, registrationTypeInitial } from "./registrationType";
@@ -23,6 +22,7 @@ const RegistrationForm = () => {
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isFetchError, setIsFetchError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const session = null;
 
   useEffect(() => {
     const setRegistrationState = async () => {
@@ -59,23 +59,7 @@ const RegistrationForm = () => {
   };
 
   if (isFetchError) {
-    return (
-      <div className="flex flex-col items-center justify-center">
-        <Typography
-          variant="h3"
-          className=" text-center pb-4 text-primary-color"
-        >
-          {languageMode == "english"
-            ? "Something went wrong"
-            : "Coś poszło nie tak"}
-        </Typography>
-        <Typography variant="h6" className="text-primary-color p-4">
-          {languageMode == "english"
-            ? "Try again later"
-            : "Spróbuj ponownie później"}
-        </Typography>
-      </div>
-    );
+    throw new Error("Error while fetching registration state");
   } else if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center">

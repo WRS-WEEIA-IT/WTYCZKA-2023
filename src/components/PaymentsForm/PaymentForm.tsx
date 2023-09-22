@@ -72,23 +72,7 @@ const PaymentsForm = () => {
   };
 
   if (isFetchError) {
-    return (
-      <div className="flex flex-col items-center justify-center">
-        <Typography
-          variant="h3"
-          className=" text-center pb-4 text-primary-color"
-        >
-          {languageMode == "english"
-            ? "Something went wrong"
-            : "Coś poszło nie tak"}
-        </Typography>
-        <Typography variant="h6" className="text-primary-color p-4">
-          {languageMode == "english"
-            ? "Try again later"
-            : "Spróbuj ponownie później"}
-        </Typography>
-      </div>
-    );
+    throw new Error("Error while fetching payment state");
   } else if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center">

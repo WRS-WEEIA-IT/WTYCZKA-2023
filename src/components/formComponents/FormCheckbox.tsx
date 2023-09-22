@@ -1,9 +1,7 @@
-import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { Checkbox, FormControlLabel, Typography } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
 const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
-  const { languageMode } = useLanguageModeContext();
   const { control } = useFormContext();
 
   return (
