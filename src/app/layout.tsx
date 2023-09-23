@@ -1,4 +1,3 @@
-"use client";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
@@ -6,7 +5,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import Navbar from "@/components/Navbar/Navbar";
 import { LanguageModeContextProvider } from "@/contexts/LanguageModeContext";
 import { SelectedSectionContextProvider } from "@/contexts/SelectedSectionContext";
-import { MuiSetup } from "@/styles/muiThemeSetup";
+import { theme } from "@/styles/muiThemeSetup";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -19,8 +18,6 @@ export const metadata: Metadata = {
   description: "Oficjalna strona zapisów na Wtyczkę 2023",
   keywords: ["Wtyczka", "WEEIA", "Wyjazd WEEIA", "Integracja"],
 };
-
-const theme = createTheme(MuiSetup);
 
 export default function RootLayout({
   children,

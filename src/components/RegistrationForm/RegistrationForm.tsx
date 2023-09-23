@@ -22,7 +22,6 @@ const RegistrationForm = () => {
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isFetchError, setIsFetchError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const session = null;
 
   useEffect(() => {
     const setRegistrationState = async () => {
@@ -59,7 +58,7 @@ const RegistrationForm = () => {
   };
 
   if (isFetchError) {
-    throw new Error("Error while fetching registration state");
+    throw new Error("Server is offline");
   } else if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center">

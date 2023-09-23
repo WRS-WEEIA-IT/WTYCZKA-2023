@@ -1,4 +1,7 @@
-export const MuiSetup = {
+"use client";
+import { createTheme } from "@mui/material";
+
+const MuiSetup = {
   palette: {
     primary: {
       main: "#ff4dcc",
@@ -73,3 +76,5 @@ export const MuiSetup = {
     },
   },
 };
+
+export const theme = createTheme(MuiSetup);

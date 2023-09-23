@@ -1,10 +1,12 @@
 "use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { Typography } from "@mui/material";
-import FormField from "../RegistrationForm/FormField";
 import { FormProvider, useForm } from "react-hook-form";
 import { facebookLink } from "@/services/socialLinks";
 import AnimateWrapper from "@/animations/AnimateWrapper";
+import { useState } from "react";
+import FormField from "../formComponents/FormField";
+import Toast from "../Toast/Toast";
 
 type FormValues = {
   name: string;
