@@ -2,11 +2,9 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { Typography } from "@mui/material";
 import FormField from "../RegistrationForm/FormField";
-import { FormProvider, set, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { facebookLink } from "@/services/socialLinks";
-import { useState } from "react";
-import Toast from "../Toast/Toast";
-import { DevTool } from "@hookform/devtools";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 type FormValues = {
   name: string;
@@ -136,7 +134,6 @@ const ContactForm = () => {
           </div>
         </form>
         <Toast open={open} setOpen={setOpen} error={isSendError} />
-        <DevTool control={methods.control} />
       </FormProvider>
     </main>
   );
