@@ -35,7 +35,7 @@ const ParticipantInfoSection = () => {
           isRequired={true}
           fieldType="mail"
           minLength={3}
-          maxLength={20}
+          maxLength={30}
         />
         <FormField
           label={languageMode == "english" ? "Phone number" : "Telefon"}

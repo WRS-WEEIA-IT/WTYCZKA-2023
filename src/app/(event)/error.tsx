@@ -20,8 +20,8 @@ export default function Error({
       </Typography>
       <Image
         src="/error/error.svg"
-        width={800}
-        height={800}
+        width={600}
+        height={600}
         alt="Picture of the error"
       />
       <Link href="/">

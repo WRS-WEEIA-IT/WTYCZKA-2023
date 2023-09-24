@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import Navbar from "@/components/Navbar/Navbar";
 import { LanguageModeContextProvider } from "@/contexts/LanguageModeContext";
 import { SelectedSectionContextProvider } from "@/contexts/SelectedSectionContext";
@@ -31,7 +31,6 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <LanguageModeContextProvider>
             <SelectedSectionContextProvider>
-              <Navbar />
               {children}
             </SelectedSectionContextProvider>
           </LanguageModeContextProvider>

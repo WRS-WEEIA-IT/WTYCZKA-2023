@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col gap-4 justify-center items-center text-center h-4/5">
+    <div className="flex flex-col gap-4 justify-center items-center sm:px-10 xl:px-32">
       <Image
         src="/not-found/page-not-found.svg"
         width={600}

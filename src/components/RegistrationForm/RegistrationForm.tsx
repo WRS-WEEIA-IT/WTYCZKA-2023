@@ -30,6 +30,7 @@ const RegistrationForm = () => {
         const forms = data.docs.map((doc) => ({
           ...doc.data(),
         }));
+        console.log(forms);
         const registration = forms.filter(
           (state) => state.form === "registration"
         );
