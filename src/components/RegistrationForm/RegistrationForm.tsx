@@ -102,19 +102,56 @@ const RegistrationForm = () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <Typography variant="h3" className=" text-center pb-4">
-          {languageMode == "english"
-            ? "Sign up for the trip"
-            : "Zapisz się na wyjazd"}
-        </Typography>
-        <ParticipantInfoSection />
-        <StudentDetailsSection />
-        <AdditionalQuestionsSection />
-        <div className="flex gap-4 items-center justify-center m-8">
-          <button type="submit" className="button-round button-filled ">
-            {languageMode == "english" ? "Sign up" : "Zapisz się"}
+        <AnimateWrapper
+          duration={1}
+          delay={0.1}
+          type="FadeInBottom"
+          once={true}
+        >
+          <Typography variant="h3" className=" text-center pb-4">
+            {languageMode == "english"
+              ? "Sign up for the trip"
+              : "Zapisz się na wyjazd"}
+          </Typography>
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.2}
+          type="FadeInBottom"
+          once={true}
+        >
+          <ParticipantInfoSection />
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.3}
+          type="FadeInBottom"
+          once={true}
+        >
+          <StudentDetailsSection />
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.4}
+          type="FadeInBottom"
+          once={true}
+        >
+          <AdditionalQuestionsSection />
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.5}
+          type="FadeInBottom"
+          once={true}
+          className="flex gap-4 items-center justify-center m-8"
+        >
+          <button
+            type="submit"
+            className="button-round button-filled max-sm:px-4"
+          >
+            {languageMode == "english" ? "Submit" : "Wyślij zgłoszenie"}
           </button>
-        </div>
+        </AnimateWrapper>
       </form>
       <Toast setOpen={setOpen} open={open} error={isSubmitError} />
     </FormProvider>
