@@ -42,7 +42,7 @@ const AdditionalSectionDialog = ({
         <CloseIcon />
       </IconButton>
       <DialogContent sx={{ bgcolor: "#050505" }}>
-        <DialogContentText variant="h6" className="text-white">
+        <DialogContentText variant="h6" sx={{ color: "white" }}>
           {dialogTextContent}
         </DialogContentText>
       </DialogContent>
